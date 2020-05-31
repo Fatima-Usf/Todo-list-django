@@ -1,7 +1,23 @@
-<h1> this is the todo page </h1>
+<!DOCTYPE html>
+<html> 
+    <head>
+    </head>
+    <body>
+        <h1> this is the todo page </h1>
 
-<ul>
-    {% for item in my_todo_items %}
-    <li> {{ item.content }} </li>
-    {% endfor %}
-</ul>
+        <ul>
+            {% for item in my_todo_items %}
+            <li> {{ item.content }} </li>
+            {% endfor %}
+        </ul>
+        <!-- http request to this url /addItem/, and since we gonna create something on db we need to do post method-->
+        <form action="/addItem/" method="POST">{% csrf_token %}
+            <input type="text" name="content">
+            <input type="submit" value="Add">
+        </form> 
+        
+    
+    </body>
+</html>
+
+

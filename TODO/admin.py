@@ -3,6 +3,6 @@ from .models import ItemTodo
 # Register your models here.
 
 class todoitems_admin(admin.ModelAdmin):
-    list_display=('content')
+    pass
 
 admin.site.register(ItemTodo, todoitems_admin)
