@@ -15,3 +15,12 @@ def add_item(request):
     new_item = ItemTodo(content = request.POST['content'])
     new_item.save() #save my new item in my db
     return HttpResponseRedirect('/todo/')
+
+
+def deleteItem(request, todo_id):
+    id_item = ItemTodo.objects.get(id=todo_id)
+    id_item.delete()
+    return HttpResponseRedirect('/todo/')
+
+
+

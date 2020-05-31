@@ -7,7 +7,11 @@
 
         <ul>
             {% for item in my_todo_items %}
-            <li> {{ item.content }} </li>
+            <li> {{ item.content }}
+                <form action="/deleteItem/{{ item.id }}/" style="display: inline;" method="POST"> {% csrf_token %}
+                <input type="submit" value=" delete ">
+                </form>
+            </li>
             {% endfor %}
         </ul>
         <!-- http request to this url /addItem/, and since we gonna create something on db we need to do post method-->
