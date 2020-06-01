@@ -30,10 +30,10 @@
         </div>
     </div>
     <div class="text-center" style="padding: 16px;padding-top: 500px;"> {% for item in my_todo_items %}
-        <div> {{ item.content }}
+        <div>   
             <form action="/deleteItem/{{ item.id }}/" method="POST"> {% csrf_token %}
-                <input type="text" class="search-field" placeholder="Your task"/>
-                <button type="button" class="search-button">Done</button>
+                <input type="text" class="search-field" placeholder="{{ item.content }}"/>
+                <input  type="submit" class="search-button" value="Done">
             </form>
         </div> {% endfor %}
     </div>
