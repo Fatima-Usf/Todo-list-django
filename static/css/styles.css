@@ -1,10 +1,18 @@
-[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+html{
+  margin-top: 50px;
+}
+
+
+[type=submit]:not(:disabled) {
   background-color: #fa81ae;
 }
 
-.newsletter-subscribe form .btn-primary {
-  background-color: #055ada !important;
-  color: #fff;
-  outline: none !important;
+#div1{
+  margin-left: 50px;
+  margin-top: 30px;
+  width: 550px;
 }
 
+#div2{
+  width: 600px;
+}

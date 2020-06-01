@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="margin-top: 50px;">
+<html>
 
 <head>
     {% load static %}
@@ -16,20 +16,20 @@
 </head>
 
 <body>
-    <div class="float-left"><img class="float-left" src="{% static 'img/To%20do%20list.gif' %}" style="margin-left: 50px;"></div>
-    <div class="float-right newsletter-subscribe" style="width: 600px;">
+    <div id="div1" class="float-left"><img class="float-left" src="{% static 'img/To%20do%20list.gif' %}"></div>
+    <div id="div2" class="float-right newsletter-subscribe">
         <div class="container float-right">
             <div class="intro" style="padding-left: -20px;">
                 <h2 class="text-center">TO DO TODAY</h2>
                 <p class="text-center" style="padding-bottom: 60px;padding-top: 50px;">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
             </div>
             <form class="form-inline" action="/addItem/"  method="post"> {% csrf_token %}
-                <div class="form-group"><input class="form-control" type="text" name="task" placeholder="Your task"></div>
-                <div class="form-group"><button class="btn btn-primary" type="submit" style="background-color: #fa81ae !important;color: #000000;">+ new task</button></div>
+                <div class="form-group"><input class="form-control" type="text" name="content" placeholder="Your task"></div>
+                <div class="form-group"><input class="btn btn-primary" type="submit" value="+ new task" style="background-color: #fa81ae !important;color: #000000;">
             </form>
         </div>
     </div>
-    <div class="text-center" style="padding: 16px;padding-top: 500px;"> {% for item in my_todo_items %}
+    <div class="text-center" style="padding: 16px;padding-top: 400px;"> {% for item in my_todo_items %}
         <div>   
             <form action="/deleteItem/{{ item.id }}/" method="POST"> {% csrf_token %}
                 <input type="text" class="search-field" placeholder="{{ item.content }}"/>
