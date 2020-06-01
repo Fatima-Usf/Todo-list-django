@@ -1,27 +1,44 @@
 <!DOCTYPE html>
-<html> 
-    <head>
-    </head>
-    <body>
-        <h1> this is the todo page </h1>
+<html style="margin-top: 50px;">
 
-        <ul>
-            {% for item in my_todo_items %}
-            <li> {{ item.content }}
-                <form action="/deleteItem/{{ item.id }}/" style="display: inline;" method="POST"> {% csrf_token %}
-                <input type="submit" value=" delete ">
-                </form>
-            </li>
-            {% endfor %}
-        </ul>
-        <!-- http request to this url /addItem/, and since we gonna create something on db we need to do post method-->
-        <form action="/addItem/" method="POST">{% csrf_token %}
-            <input type="text" name="content">
-            <input type="submit" value="Add">
-        </form> 
-        
-    
-    </body>
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Planing</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Google-Style-Text-Input.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Newsletter-Subscription-Form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Rounded-Search-Input-field-1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Rounded-Search-Input-field.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/untitled.css' %}">
+</head>
+
+<body>
+    <div class="float-left"><img class="float-left" src="{% static 'img/To%20do%20list.gif' %}" style="margin-left: 50px;"></div>
+    <div class="float-right newsletter-subscribe" style="width: 600px;">
+        <div class="container float-right">
+            <div class="intro" style="padding-left: -20px;">
+                <h2 class="text-center">TO DO TODAY</h2>
+                <p class="text-center" style="padding-bottom: 60px;padding-top: 50px;">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
+            </div>
+            <form class="form-inline" action="/addItem/"  method="post"> {% csrf_token %}
+                <div class="form-group"><input class="form-control" type="text" name="task" placeholder="Your task"></div>
+                <div class="form-group"><button class="btn btn-primary" type="submit" style="background-color: #fa81ae !important;color: #000000;">+ new task</button></div>
+            </form>
+        </div>
+    </div>
+    <div class="text-center" style="padding: 16px;padding-top: 500px;"> {% for item in my_todo_items %}
+        <div> {{ item.content }}
+            <form action="/deleteItem/{{ item.id }}/" method="POST"> {% csrf_token %}
+                <input type="text" class="search-field" placeholder="Your task"/>
+                <button type="button" class="search-button">Done</button>
+            </form>
+        </div> {% endfor %}
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
 </html>
-
-

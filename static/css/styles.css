@@ -1,0 +1,10 @@
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+  background-color: #fa81ae;
+}
+
+.newsletter-subscribe form .btn-primary {
+  background-color: #055ada !important;
+  color: #fff;
+  outline: none !important;
+}
+
